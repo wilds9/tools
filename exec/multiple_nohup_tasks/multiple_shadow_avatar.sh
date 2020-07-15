@@ -30,6 +30,6 @@ do
     else
 	CASE_LOG='none'
     fi
-    echo $HEAD $CASE_LOG >> log.txt
+    echo "comment for case ${i} ({{var1}}->${STRING}):" $CASE_LOG >> log.txt
 done
 
