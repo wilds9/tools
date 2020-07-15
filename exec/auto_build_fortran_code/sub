@@ -1,0 +1,44 @@
+#!/bin/bash
+#PBS -N unnamed
+##PBS -o out.pbs.log
+#PBS -e eo.pbs.log
+#PBS -l nodes=1:ppn=1
+#PBS -j eo
+##PBS -q destinationName
+##PBS -l walltime=72:0:0
+##PBS -p 0
+##PBS -m abe
+##PBS -M dxhui@cluster
+
+ExecutableFileName="./unnamed.e"
+
+cd $PBS_O_WORKDIR 
+JOBINFOLOG='jobInfo.log'
+JOBID=`echo $PBS_JOBID | awk -F. '{print $1}'`
+echo This job id is $JOBID | tee $JOBINFOLOG
+echo Working directory is $PBS_O_WORKDIR | tee -a $JOBINFOLOG
+echo Start time is `date` | tee -a $JOBINFOLOG
+echo This job runs on the following nodes: | tee -a $JOBINFOLOG
+echo `cat $PBS_NODEFILE | sort | uniq` | tee -a $JOBINFOLOG
+NPROCS=`cat $PBS_NODEFILE | wc -l`
+NNODES=`uniq $PBS_NODEFILE | wc -l`
+PPROCS=$(($NPROCS/$NNODES))
+echo This job has allocated $NNODES nodes, $NPROCS processors.| tee -a $JOBINFOLOG
+uniq $PBS_NODEFILE | sort | sed s/$/i:$PPROCS/ > $PBS_O_WORKDIR/hostfile.log
+
+#source your profile
+#source __.sh
+
+#MPIRUN="mpirun -np $NPROCS -f $PBS_O_WORKDIR/hostfile.log -env I_MPI_DEVICE=rdma "
+MPIRUN="mpirun -np $NPROCS "
+
+if [[ $NPROCS == '1' ]]; then
+    MYCOMMAND=$ExecutableFileName
+else
+    MYCOMMAND=$MPIRUN' '$ExecutableFileName
+fi
+{ time $MYCOMMAND;} >$PBS_O_WORKDIR/output.log 2>&1
+echo End time is `date`| tee -a $JOBINFOLOG
+rm -f  $PBS_O_WORKDIR/hostfile.log
+pkill -P $$
+exit 0
