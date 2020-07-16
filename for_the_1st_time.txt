@@ -1,1 +1,0 @@
-mkdir -p ~/.local/opt && cd ~/.local/opt && rm -rf tools/ && git clone https://gitee.com/wilds9/tools.git && echo -e '\n\nsource ~/.local/opt/tools/tools.sh' >> ~/.bashrc && source ~/.bashrc && cd -
