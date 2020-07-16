@@ -1,18 +1,18 @@
 * Tools
 Developed for members of [[http://pseg.dlut.edu.cn/][Plasma Simulation and Experiment Group (PSEG)]]
-
-** Download and install
+** Configuration instructions
+*** Download and install
 #+BEGIN_SRC shell
 mkdir -p ~/.local/opt && cd ~/.local/opt && rm -rf tools/ && git clone https://gitee.com/wilds9/tools.git && echo -e '\n\nsource ~/.local/opt/tools/tools.sh' >> ~/.bashrc && source ~/.bashrc && cd -
 #+END_SRC
 
-** Update
+*** Update
 #+BEGIN_SRC shell
 cd .local/opt/tools/ && git pull && cd -
 #+END_SRC
 
-** Uninstall
-Remove the following line from the file "~/bashrc":
+*** Uninstall
+Remove the following line from the file "~/.bashrc":
 #+BEGIN_SRC shell
 source ~/.local/opt/tools/tools.sh
 #+END_SRC
