@@ -16,3 +16,5 @@ Remove the following line from the file "~/.bashrc":
 #+BEGIN_SRC shell
 source ~/.local/opt/tools/tools.sh
 #+END_SRC
+** Support
+If you have any questions, please send email to [[mailto:huidexuan@gmail.com][huidexuan@gmail.com]]

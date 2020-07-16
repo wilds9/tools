@@ -17,3 +17,8 @@ alias vt220="export TERM='vt220'"
 # intel
 rm -rf ~/intel/
 
+# Search by filename
+alias sf="find . | grep "
+
+# Search by file content
+alias sc="grep -R "
