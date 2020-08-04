@@ -2,6 +2,7 @@
 alias sod="du -h --max-depth=1"
 
 # cd
+alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
@@ -15,7 +16,7 @@ export TERM='xterm-256color'
 alias vt220="export TERM='vt220'"
 
 # intel
-rm -rf ~/intel/
+# rm -rf ~/intel/
 
 # Search by filename
 alias sf="find . | grep "
