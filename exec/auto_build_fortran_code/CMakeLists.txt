@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 2.8)
 include(CMakeForceCompiler)
-CMAKE_FORCE_Fortran_COMPILER(mpiifort "Intel MPI (Fortran)")
+CMAKE_FORCE_Fortran_COMPILER(mpiifort "Intel MPI")
 project (unnamed.e Fortran)
 set (src_DIR "${PROJECT_SOURCE_DIR}/src")
 set (ExternalCode_DIR "${PROJECT_SOURCE_DIR}/ExternalCode")
