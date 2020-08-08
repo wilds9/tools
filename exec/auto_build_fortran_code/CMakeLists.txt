@@ -65,3 +65,4 @@ add_executable (${PROJECT_NAME} ${sources})
 #target_link_libraries(${PROJECT_NAME} hdf5hl_fortran hdf5_hl hdf5_fortran hdf5) 
 #add_compile_options(-lrt -lz -ldl -lm -Wl,-rpath -Wl,${LINK_DIR})
 
+#add_definitions( -mcmodel=medium )
