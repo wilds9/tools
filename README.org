@@ -2,6 +2,8 @@
 
 Developed for members of [[http://pseg.dlut.edu.cn/][Plasma Simulation and Experiment Group (PSEG)]]
 
+The project homepage is [[https://github.com/wilds9/tools]]. (For network unimpeded considerations, this project also has a backup mirror: [[https://gitee.com/wilds9/tools]])
+
 ** Configuration instructions
 
 *** Download and install
