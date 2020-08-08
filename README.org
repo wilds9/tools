@@ -31,7 +31,7 @@ cd ~/.local/opt/tools/ && git pull && cd -
 Remove the following line from the file "~/.bashrc":
 
 #+BEGIN_SRC shell
-source ~/.local/opt/tools/tools.sh
+[[ $TOOLS_LOADED == "" ]] && { TOOLS_LOADED=1; source ~/.local/opt/tools/tools.sh;}
 #+END_SRC
 
 ** Support
