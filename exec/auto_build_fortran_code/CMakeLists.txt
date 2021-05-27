@@ -1,6 +1,12 @@
 cmake_minimum_required (VERSION 2.8)
-include(CMakeForceCompiler)
-CMAKE_FORCE_Fortran_COMPILER(mpiifort "Intel MPI")
+
+# 设定编译器
+# a) 不出现警告的写法
+set (CMAKE_Fortran_COMPILER mpiifort)
+# b) 过时的写法
+# include(CMakeForceCompiler)
+# CMAKE_FORCE_Fortran_COMPILER(mpiifort "Intel MPI + ifort")
+
 project (unnamed.e Fortran)
 set (src_DIR "${PROJECT_SOURCE_DIR}/src")
 set (ExternalCode_DIR "${PROJECT_SOURCE_DIR}/ExternalCode")
@@ -66,3 +72,4 @@ add_executable (${PROJECT_NAME} ${sources})
 #add_compile_options(-lrt -lz -ldl -lm -Wl,-rpath -Wl,${LINK_DIR})
 
 #add_definitions( -mcmodel=medium )
+#add_definitions( -CB )

@@ -12,5 +12,5 @@ make -j 20 &&\
 cd .. &&\
 rm -f CMakeLists.txt &&\
 cp ${basepath}/sub ./ &&\
-ln -s build/unnamed.e unnamed.e
+ln -sf build/unnamed.e unnamed.e
 
